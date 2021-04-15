@@ -5,7 +5,7 @@ class Play extends Phaser.Scene {
 
     preload() {
          this.load.image('starfield', 'assets/starfield.png');
-         this.load.image('rocket', 'assets/fireball.png');
+         this.load.image('fireball', 'assets/fireball.png');
          this.load.image('dragon', 'assets/dragon.png');
          this.load.spritesheet('explosion', 'assets/explosion.png',
          {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
@@ -22,11 +22,11 @@ class Play extends Phaser.Scene {
             0,0,640,480, 'starfield'
         ).setOrigin(0,0);
 
-        this.p1Rocket = new Rocket(
+        this.p1Fireball = new Fireball(
             this, 
             game.config.width/2,
             game.config.height - borderUISize - borderPadding,
-            'rocket');
+            'fireball');
 
         this.dragon1 = new Dragon(
             this,
@@ -117,15 +117,15 @@ class Play extends Phaser.Scene {
     update() {
         this.starfield.tilePositionX -= 2;
         if (!this.gameOver) {
-            this.p1Rocket.update();
+            this.p1Fireball.update();
             this.dragon1.update();
             this.dragon2.update();
             this.dragon3.update();
         }
 
-        this.checkCollision(this.p1Rocket, this.dragon1);
-        this.checkCollision(this.p1Rocket, this.dragon2);
-        this.checkCollision(this.p1Rocket, this.dragon3);
+        this.checkCollision(this.p1Fireball, this.dragon1);
+        this.checkCollision(this.p1Fireball, this.dragon2);
+        this.checkCollision(this.p1Fireball, this.dragon3);
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
@@ -137,13 +137,13 @@ class Play extends Phaser.Scene {
 
     }
 
-    checkCollision(rocket, dragon) {
-        if (rocket.x + rocket.width > dragon.x && 
-            rocket.x < (dragon.x + dragon.width) && 
-            rocket.y + rocket.height > dragon.y && 
-            rocket.y < (dragon.y + dragon.height) ) {
+    checkCollision(fireball, dragon) {
+        if (fireball.x + fireball.width > dragon.x && 
+            fireball.x < (dragon.x + dragon.width) && 
+            fireball.y + fireball.height > dragon.y && 
+            fireball.y < (dragon.y + dragon.height) ) {
                 dragon.alpha = 0;
-                rocket.reset();
+                fireball.reset();
                 this.dragonExplode(dragon);
                 dragon.reset();
                 
