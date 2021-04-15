@@ -1,3 +1,9 @@
+//redesign theme/aesthetic - 60
+//create new spaceship type - 20  or add background music and speed increase after thirty seconds
+//display the time remaining - 10
+//implement scoring mechanism that
+//adds time for successful hits - 20 
+
 let config = {
     type: Phaser.CANVAS,
     width: 640,
