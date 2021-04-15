@@ -6,7 +6,7 @@ class Play extends Phaser.Scene {
     preload() {
          this.load.image('starfield', 'assets/starfield.png');
          this.load.image('rocket', 'assets/rocket.png');
-         this.load.image('spaceship', 'assets/dragon.png');
+         this.load.image('dragon', 'assets/dragon.png');
          this.load.spritesheet('explosion', 'assets/explosion.png',
          {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
 
@@ -28,29 +28,29 @@ class Play extends Phaser.Scene {
             game.config.height - borderUISize - borderPadding,
             'rocket');
 
-        this.ship1 = new Ship(
+        this.dragon1 = new Dragon(
             this,
             100,
             200,
-            'spaceship',
+            'dragon',
             0,
             10
         );
 
-        this.ship2 = new Ship(
+        this.dragon2 = new Dragon(
             this,
             300,
             240,
-            'spaceship',
+            'dragon',
             0,
             10
         );
 
-        this.ship3 = new Ship(
+        this.dragon3 = new Dragon(
             this,
             380,
             300,
-            'spaceship',
+            'dragon',
             0,
             10
         );
@@ -118,14 +118,14 @@ class Play extends Phaser.Scene {
         this.starfield.tilePositionX -= 2;
         if (!this.gameOver) {
             this.p1Rocket.update();
-            this.ship1.update();
-            this.ship2.update();
-            this.ship3.update();
+            this.dragon1.update();
+            this.dragon2.update();
+            this.dragon3.update();
         }
 
-        this.checkCollision(this.p1Rocket, this.ship1);
-        this.checkCollision(this.p1Rocket, this.ship2);
-        this.checkCollision(this.p1Rocket, this.ship3);
+        this.checkCollision(this.p1Rocket, this.dragon1);
+        this.checkCollision(this.p1Rocket, this.dragon2);
+        this.checkCollision(this.p1Rocket, this.dragon3);
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
@@ -137,31 +137,31 @@ class Play extends Phaser.Scene {
 
     }
 
-    checkCollision(rocket, ship) {
-        if (rocket.x + rocket.width > ship.x && 
-            rocket.x < (ship.x + ship.width) && 
-            rocket.y + rocket.height > ship.y && 
-            rocket.y < (ship.y + ship.height) ) {
-                ship.alpha = 0;
+    checkCollision(rocket, dragon) {
+        if (rocket.x + rocket.width > dragon.x && 
+            rocket.x < (dragon.x + dragon.width) && 
+            rocket.y + rocket.height > dragon.y && 
+            rocket.y < (dragon.y + dragon.height) ) {
+                dragon.alpha = 0;
                 rocket.reset();
-                this.shipExplode(ship);
-                ship.reset();
+                this.dragonExplode(dragon);
+                dragon.reset();
                 
                 
             }
     }
 
-    shipExplode(ship) {
-        ship.alpha = 0;
-        let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0,0);
+    dragonExplode(dragon) {
+        dragon.alpha = 0;
+        let boom = this.add.sprite(dragon.x, dragon.y, 'explosion').setOrigin(0,0);
         boom.anims.play('explode');
         boom.on('animationcomplete', () => {
-            ship.reset();
-            ship.alpha = 1;
+            dragon.reset();
+            dragon.alpha = 1;
             boom.destroy();
         });
         this.sound.play('sfx_explosion');
-        this.p1Score += ship.points;
+        this.p1Score += dragon.points;
         this.scoreLeft.text = this.p1Score;
     }
 }
