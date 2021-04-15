@@ -4,7 +4,7 @@ class Play extends Phaser.Scene {
     }
 
     preload() {
-         this.load.image('starfield', 'assets/starfield.png');
+         this.load.image('mountains', 'assets/mountainBackground.png');
          this.load.image('fireball', 'assets/fireball.png');
          this.load.image('dragon', 'assets/dragon.png');
          this.load.spritesheet('explosion', 'assets/explosion.png',
@@ -19,7 +19,7 @@ class Play extends Phaser.Scene {
 
     create() {
         this.starfield= this.add.tileSprite(
-            0,0,640,480, 'starfield'
+            0,0,640,480, 'mountains'
         ).setOrigin(0,0);
 
         this.p1Fireball = new Fireball(
