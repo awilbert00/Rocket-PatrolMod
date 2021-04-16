@@ -6,9 +6,9 @@ class Menu extends Phaser.Scene {
     preload() {
         this.load.image('mountains', 'assets/mountainBackground.png');
         this.load.image('dragon', 'assets/dragon.png');
-        this.load.audio('sfx_select', 'assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', 'assets/explosion38.wav');
-        this.load.audio('sfx_rocket', 'assets/rocket_shot.wav');
+        this.load.audio('sfx_select', 'assets/kneekooMagic.ogg');
+        this.load.audio('sfx_explosion', 'assets/misosoundExplosion.wav');
+        this.load.audio('sfx_fireball', 'assets/ctcollabFireball.wav');
 
    }
     create() {
@@ -25,7 +25,7 @@ class Menu extends Phaser.Scene {
         ).setOrigin(0,0);
 
         this.dragon03 = this.add.tileSprite(
-            500,120,55,40, 'dragon'
+            500,100,55,40, 'dragon'
         ).setOrigin(0,0);
 
         let menuConfig = {
