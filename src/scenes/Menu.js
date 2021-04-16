@@ -4,17 +4,34 @@ class Menu extends Phaser.Scene {
     }
 
     preload() {
+        this.load.image('mountains', 'assets/mountainBackground.png');
+        this.load.image('dragon', 'assets/dragon.png');
         this.load.audio('sfx_select', 'assets/blip_select12.wav');
         this.load.audio('sfx_explosion', 'assets/explosion38.wav');
         this.load.audio('sfx_rocket', 'assets/rocket_shot.wav');
 
    }
     create() {
+        this.mountains= this.add.tileSprite(
+            0,0,640,480, 'mountains'
+        ).setOrigin(0,0);
+
+        this.dragon01 = this.add.tileSprite(
+            50,90,55,40, 'dragon'
+        ).setOrigin(0,0);
+
+        this.dragon02 = this.add.tileSprite(
+            150,300,55,40, 'dragon'
+        ).setOrigin(0,0);
+
+        this.dragon03 = this.add.tileSprite(
+            500,120,55,40, 'dragon'
+        ).setOrigin(0,0);
+
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '24px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            color: '#fff',
             align: 'right',
             padding: {
                 top: 5,
@@ -24,11 +41,10 @@ class Menu extends Phaser.Scene {
         }
 
         this.add.text(game.config.width/2, game.config.height/2-borderUISize-borderPadding, 
-            'ROCKET PATROL', menuConfig).setOrigin(0.5);
+            'DRAGON PATROL', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2,
             'Use <- -> arrows to move and (F) to fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
-        menuConfig.color = "#000";
+        menuConfig.color = "#fff";
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding,
             'Press <- for Novice or -> for Expert', menuConfig).setOrigin(0.5);
 

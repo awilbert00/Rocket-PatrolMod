@@ -18,7 +18,7 @@ class Play extends Phaser.Scene {
 
 
     create() {
-        this.starfield= this.add.tileSprite(
+        this.mountains= this.add.tileSprite(
             0,0,640,480, 'mountains'
         ).setOrigin(0,0);
 
@@ -115,7 +115,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-        this.starfield.tilePositionX -= 2;
+        this.mountains.tilePositionX -= 2;
         if (!this.gameOver) {
             this.p1Fireball.update();
             this.dragon1.update();
