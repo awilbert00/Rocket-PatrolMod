@@ -7,6 +7,7 @@ class Play extends Phaser.Scene {
          this.load.image('mountains', 'assets/mountainBackground.png');
          this.load.image('fireball', 'assets/fireball.png');
          this.load.image('dragon', 'assets/dragon.png');
+         this.load.image('dragonFast', 'assets/fastDragon.png');
          this.load.spritesheet('explosion', 'assets/explosion.png',
          {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
 
@@ -22,12 +23,14 @@ class Play extends Phaser.Scene {
             0,0,640,480, 'mountains'
         ).setOrigin(0,0);
 
+        //add fireball
         this.p1Fireball = new Fireball(
             this, 
             game.config.width/2,
             game.config.height - borderUISize - borderPadding,
             'fireball');
 
+        //add dragons
         this.dragon1 = new Dragon(
             this,
             100,
@@ -55,11 +58,20 @@ class Play extends Phaser.Scene {
             10
         );
 
+        this.dragonFast = new DragonFast(
+            this,
+            200,
+            230,
+            'dragonFast',
+            0,
+            20
+        );
+
         //green UI background
         this.add.rectangle(
             0, borderUISize + borderPadding, 
             game.config.width, borderUISize*2,
-            0x00FF00
+            0xFFFFFF
             ).setOrigin(0,0);
 
         //white borders
@@ -121,11 +133,13 @@ class Play extends Phaser.Scene {
             this.dragon1.update();
             this.dragon2.update();
             this.dragon3.update();
+            this.dragonFast.update();
         }
 
         this.checkCollision(this.p1Fireball, this.dragon1);
         this.checkCollision(this.p1Fireball, this.dragon2);
         this.checkCollision(this.p1Fireball, this.dragon3);
+        this.checkCollision(this.p1Fireball, this.dragonFast);
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();

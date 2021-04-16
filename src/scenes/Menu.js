@@ -58,6 +58,7 @@ class Menu extends Phaser.Scene {
             //easy mode
             game.settings = {
                 dragonSpeed: 3,
+                fastDragonSpeed: 4,
                 gameTimer: 60000
             }
             this.sound.play('sfx_select');
@@ -68,6 +69,7 @@ class Menu extends Phaser.Scene {
             //hard mode
             game.settings = {
                 dragonSpeed: 4,
+                fastDragonSpeed: 5,
                 gameTimer: 45000
             }
             this.sound.play('sfx_select');
