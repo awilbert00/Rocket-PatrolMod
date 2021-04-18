@@ -1,6 +1,6 @@
-//redesign theme/aesthetic - 60
-//create new spaceship type - 20  or add background music and speed increase after thirty seconds
-//display the time remaining - 10
+//redesign theme/aesthetic - 60 (basically done)
+//create new spaceship type - 20 (done)  or add background music and speed increase after thirty seconds
+//display the time remaining - 10 (done)
 //implement scoring mechanism that
 //adds time for successful hits - 20 
 

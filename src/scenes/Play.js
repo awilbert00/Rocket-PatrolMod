@@ -58,7 +58,7 @@ class Play extends Phaser.Scene {
             10
         );
 
-        this.dragonFast = new DragonFast(
+        this.dragonFast = new DragonFast (
             this,
             200,
             230,
@@ -95,6 +95,7 @@ class Play extends Phaser.Scene {
             frameRate: 30
         });
 
+        //Score config
         this.p1Score = 0;
         let scoreConfig = {
             fontFamily: 'Courier',
@@ -113,6 +114,25 @@ class Play extends Phaser.Scene {
             this.p1Score,
             scoreConfig);
 
+        this.p1Timer = game.settings.gameTimer;
+        let timerConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#843605',
+            align: 'right',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 100
+        }
+        this.timerRight = this.add.text(
+            borderUISize + borderPadding*43, 
+            borderUISize + borderPadding*2,
+            this.p1Timer/1000,
+            timerConfig);
+        
+
         this.gameOver = false
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
@@ -126,14 +146,20 @@ class Play extends Phaser.Scene {
 
     }
 
-    update() {
-        this.mountains.tilePositionX -= 2;
+    update(time, delta) {
+        this.mountains.tilePositionX -= 2; 
+        console.log(this.p1Timer);
+        
+
         if (!this.gameOver) {
             this.p1Fireball.update();
             this.dragon1.update();
             this.dragon2.update();
             this.dragon3.update();
             this.dragonFast.update();
+            this.p1Timer -= delta;
+            this.timerRight.text = Math.trunc(this.p1Timer/1000);
+            
         }
 
         this.checkCollision(this.p1Fireball, this.dragon1);
@@ -148,8 +174,14 @@ class Play extends Phaser.Scene {
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene");
         }
+        
+        
+    
 
     }
+
+    
+
 
     checkCollision(fireball, dragon) {
         if (fireball.x + fireball.width > dragon.x && 
@@ -177,5 +209,13 @@ class Play extends Phaser.Scene {
         this.sound.play('sfx_explosion');
         this.p1Score += dragon.points;
         this.scoreLeft.text = this.p1Score;
+
+       // game.settings.gameTimer += 1000;
+       // this.p1Timer += 5000;
+       // this.timerRight.text = this.p1Timer;
     }
+
+
+
+
 }
