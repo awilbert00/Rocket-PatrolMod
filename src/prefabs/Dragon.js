@@ -4,6 +4,8 @@ class Dragon extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         this.points = pointValue;
         this.moveSpeed = game.settings.dragonSpeed;
+
+        
     }
     update() {
         this.x -= this.moveSpeed;

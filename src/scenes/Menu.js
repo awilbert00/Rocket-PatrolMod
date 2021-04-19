@@ -70,7 +70,7 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 dragonSpeed: 4,
                 fastDragonSpeed: 5,
-                gameTimer: 45000
+                gameTimer: 15000
             }
             this.sound.play('sfx_select');
             this.scene.start('playScene');

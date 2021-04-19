@@ -135,6 +135,10 @@ class Play extends Phaser.Scene {
 
         this.gameOver = false
         scoreConfig.fixedWidth = 0;
+       
+
+
+
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
             this.add.text(game.config.width/2, game.config.height/2,
                 'GAME OVER', scoreConfig).setOrigin(0.5);
@@ -148,8 +152,7 @@ class Play extends Phaser.Scene {
 
     update(time, delta) {
         this.mountains.tilePositionX -= 2; 
-        console.log(this.p1Timer);
-        
+         
 
         if (!this.gameOver) {
             this.p1Fireball.update();
@@ -210,8 +213,8 @@ class Play extends Phaser.Scene {
         this.p1Score += dragon.points;
         this.scoreLeft.text = this.p1Score;
 
-       // game.settings.gameTimer += 1000;
-       // this.p1Timer += 5000;
+        //game.settings.gameTimer += 5000;
+        //this.p1Timer += 5000;
        // this.timerRight.text = this.p1Timer;
     }
 
