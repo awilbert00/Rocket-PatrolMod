@@ -21,6 +21,8 @@ Select Sound: https://freesound.org/people/kneekoo/sounds/548497/
               - link to the license: https://creativecommons.org/licenses/by-nc/3.0/legalcode
 Explosion: https://freesound.org/people/misosound/sounds/251759/
            - link to the license: https://creativecommons.org/publicdomain/zero/1.0/
+Background Music: https://freesound.org/people/FoolBoyMedia/sounds/246390/
+                  - link to the license: https://creativecommons.org/licenses/by-nc/3.0/
 
 Art Assets:
 I made all of the art. 
