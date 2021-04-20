@@ -5,7 +5,7 @@ class Play extends Phaser.Scene {
 
     preload() {
          this.load.image('mountains', 'assets/mountainBackground.png');
-         this.load.image('fireball', 'assets/fireball.png');
+         this.load.image('fireball', 'assets/Fireball.png');
          this.load.image('dragon', 'assets/dragon.png');
          this.load.image('dragonFast', 'assets/fastDragon.png');
          this.load.spritesheet('explosion', 'assets/explosion.png',
@@ -14,6 +14,7 @@ class Play extends Phaser.Scene {
          this.load.audio('sfx_select', 'assets/kneekooMagic.ogg');
          this.load.audio('sfx_explosion', 'assets/misosoundExplosion.wav');
          this.load.audio('sfx_fireball', 'assets/ctcollabFireball.wav');
+         this.load.audio('music', 'assets/foolboymediaCalmSounds.mp3');
 
     }
 
@@ -22,6 +23,11 @@ class Play extends Phaser.Scene {
         this.mountains= this.add.tileSprite(
             0,0,640,480, 'mountains'
         ).setOrigin(0,0);
+
+        this.music = this.sound.add('music', {
+            loop: true
+        });
+        this.music.play();
 
         //add fireball
         this.p1Fireball = new Fireball(

@@ -4,6 +4,16 @@ Rocket Patrol Mod: Dragon Patrol
 4/19/2021
 ~16 hours
 
+Points Breakdown: 
+Redesign theme/aesthetic - 60 (done)
+Create new spaceship type - 20 (done)  
+Display the time remaining - 10 (done)
+Background music - 5 (done)
+
+Sources:
+Ethan Rafael - how to set up timer 
+Kristopher Yu - how to loop background music
+
 Sound Effects:
 Fireball Sound: https://freesound.org/people/CTCollab/sounds/223615/ 
                 - link to the license: https://creativecommons.org/licenses/by/3.0/legalcode
@@ -12,13 +22,8 @@ Select Sound: https://freesound.org/people/kneekoo/sounds/548497/
 Explosion: https://freesound.org/people/misosound/sounds/251759/
            - link to the license: https://creativecommons.org/publicdomain/zero/1.0/
 
-
-Points Breakdown: 
-Redesign theme/aesthetic - 60 (done)
-Create new spaceship type - 20 (done)  
-Display the time remaining - 10 (done)
-Implement scoring mechanism that
-adds time for successful hits - 20 (still working on this one)
+Art Assets:
+I made all of the art. 
 
 */
 

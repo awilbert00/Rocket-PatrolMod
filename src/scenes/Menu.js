@@ -9,6 +9,8 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_select', 'assets/kneekooMagic.ogg');
         this.load.audio('sfx_explosion', 'assets/misosoundExplosion.wav');
         this.load.audio('sfx_fireball', 'assets/ctcollabFireball.wav');
+        this.load.audio('music', 'assets/foolboymediaCalmSounds.mp3');
+
 
    }
     create() {
